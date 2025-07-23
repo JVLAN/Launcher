@@ -16,7 +16,7 @@ window.getSystemUsername = (): string => {
   return os.userInfo().username
 }
 if (!localStorage.getItem('gameVersion')) localStorage.setItem('gameVersion', '1')
-if (!localStorage.getItem('language')) localStorage.setItem('language', 'en')
+if (!localStorage.getItem('language')) localStorage.setItem('language', 'fr')
 if (!localStorage.getItem('currServerName')) localStorage.setItem('currServerName', 'localhost')
 if (!localStorage.getItem('currServer')) localStorage.setItem('currServer', '127.0.0.1')
 const defaultServers = [
