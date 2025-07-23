@@ -34,7 +34,7 @@ const links = {
 }
 
 function App(): JSX.Element {
-  const [tab, setTab] = useState(0)
+  const [tab, setTab] = useState(1)
   const [background, setBackground] = useState(0)
   const [backgrounds, setBackgrounds] = useState<string[]>([])
 

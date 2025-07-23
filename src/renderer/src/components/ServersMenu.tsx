@@ -33,7 +33,7 @@ function ServersMenu(): JSX.Element {
   const { publicServers, setPublicServers, fetchPublicServers } = useGameState()
   const { currServer, setCurrServer, setCurrServerName, setCurrServerType } =
     useSelectedServerState()
-  const [tab, setTab] = useState(0)
+  const [tab, setTab] = useState(1)
 
   const [addActive, setAddActive] = useState(false)
   const [addName, setAddName] = useState('')
