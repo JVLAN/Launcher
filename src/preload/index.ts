@@ -17,15 +17,15 @@ window.getSystemUsername = (): string => {
 }
 if (!localStorage.getItem('gameVersion')) localStorage.setItem('gameVersion', '1')
 if (!localStorage.getItem('language')) localStorage.setItem('language', 'fr')
-if (!localStorage.getItem('currServerName')) localStorage.setItem('currServerName', 'localhost')
-if (!localStorage.getItem('currServer')) localStorage.setItem('currServer', '127.0.0.1')
+if (!localStorage.getItem('currServerName')) localStorage.setItem('currServerName', 'JVLAN')
+if (!localStorage.getItem('currServer')) localStorage.setItem('currServer', 'knockout.jvlan.ch')
 const defaultServers = [
-  { name: 'localhost', ip: '127.0.0.1' },
   { name: 'JVLAN', ip: 'knockout.jvlan.ch' },
-  { name: 'JVLAN BACKUP 1', ip: 'backup1-knockout.jvlan.ch' },
-  { name: 'JVLAN BACKUP 2', ip: 'backup2-knockout.jvlan.ch' },
-  { name: 'JVLAN BACKUP 3', ip: 'backup3-knockout.jvlan.ch' },
-  { name: 'JVLAN BACKUP 4', ip: 'backup4-knockout.jvlan.ch' }
+  { name: 'localhost', ip: '127.0.0.1' },
+  { name: 'JVLAN BACKUP 1', ip: 'backup1-knockout.jvlan.ch:23700' },
+  { name: 'JVLAN BACKUP 2', ip: 'backup2-knockout.jvlan.ch:23800' },
+  { name: 'JVLAN BACKUP 3', ip: 'backup3-knockout.jvlan.ch:23900' },
+  { name: 'JVLAN BACKUP 4', ip: 'backup4-knockout.jvlan.ch:24000' }
 ]
 
 const storedServers = localStorage.getItem('servers')
