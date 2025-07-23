@@ -298,7 +298,7 @@ function PopUp(): JSX.Element {
               sx={{ input: { textAlign: 'center' } }}
               type="text"
               placeholder="Username"
-              defaultValue={localStorage.getItem('username') || window.getSystemUsername()}
+              //defaultValue={localStorage.getItem('username') || window.getSystemUsername()}
               style={{ width: '200px', textAlign: 'center', fontSize: '20px' }}
               onChange={(event): void => {
                 if (event.target.value.length > 16)
