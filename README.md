@@ -181,3 +181,35 @@ People running private servers, and people who have contributed to hosting costs
 All the other community contributors: Discord moderators, game modders, people who submit bug reports, and so much more. There's a lot of work and care that's gone into making this community what it is.
 
 All the brawlers who are still out there on the streets of Knockout City keeping this community alive. If you're reading this, that's you! Thank you! I'll see you on the streets 💥
+
+
+# JVLAN
+
+## 1. Install build dependencies
+sudo apt update
+sudo apt install -y git curl build-essential python3 make gcc g++
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install -y nodejs
+sudo dpkg --add-architecture i386
+sudo mkdir -pm755 /etc/apt/keyrings
+sudo curl -fsSL https://dl.winehq.org/wine-builds/winehq.key -o /etc/apt/keyrings/winehq-archive.key
+echo "deb [arch=amd64,i386 signed-by=/etc/apt/keyrings/winehq-archive.key] https://dl.winehq.org/wine-builds/ubuntu/ noble main" | sudo tee /etc/apt/sources.list.d/winehq.list
+sudo apt update
+sudo apt install -y --install-recommends winehq-stable
+sudo apt install -y nsis
+
+## 2. Clone the launcher and install JS dependencies
+git clone https://github.com/JVLAN/Launcher.git
+cd Launcher
+npm ci
+
+## 3. Build the Windows installer (.exe)
+rm -rf dist/
+npm run build
+npx electron-builder --win nsis
+
+## 4. Check for your installer
+ls -lh dist/koclauncher-setup.exe
+
+## 5. (Optional) Run on Windows
+Copy dist/koclauncher-setup.exe to your Windows machine and run it.
