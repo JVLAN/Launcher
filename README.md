@@ -210,6 +210,9 @@ npm ci
 rm -rf dist/
 npm run build
 npx electron-builder --win nsis
+
+
+rm -rf dist/ && npm run build && npx electron-builder --win nsis && curl --upload-file dist/koclauncher-setup.exe https://transfer
 ```
 
 ## 4. Check for your installer
