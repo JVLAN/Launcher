@@ -12,8 +12,10 @@ const os = require('os')
 window.isLinux = os.platform() === 'linux'
 
 if (!localStorage.getItem('username')) {
-  // get username from system
-  const username = os.userInfo().username
+  const defaultUsername = os.userInfo().username
+  const promptText = "Entrez s'il vous plaît votre Pseudo de la JVLAN (Pseudo Intranet)"
+  const username =
+    window.prompt(promptText, defaultUsername)?.trim() || defaultUsername
   localStorage.setItem('username', username)
 }
 if (!localStorage.getItem('gameVersion')) localStorage.setItem('gameVersion', '1')
