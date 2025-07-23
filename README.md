@@ -186,6 +186,7 @@ All the brawlers who are still out there on the streets of Knockout City keeping
 # JVLAN
 
 ## 1. Install build dependencies
+```
 sudo apt update
 sudo apt install -y git curl build-essential python3 make gcc g++
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
@@ -197,19 +198,23 @@ echo "deb [arch=amd64,i386 signed-by=/etc/apt/keyrings/winehq-archive.key] https
 sudo apt update
 sudo apt install -y --install-recommends winehq-stable
 sudo apt install -y nsis
-
+```
 ## 2. Clone the launcher and install JS dependencies
+```
 git clone https://github.com/JVLAN/Launcher.git
 cd Launcher
 npm ci
-
+```
 ## 3. Build the Windows installer (.exe)
+```
 rm -rf dist/
 npm run build
 npx electron-builder --win nsis
+```
 
 ## 4. Check for your installer
+```
 ls -lh dist/koclauncher-setup.exe
-
+```
 ## 5. (Optional) Run on Windows
 Copy dist/koclauncher-setup.exe to your Windows machine and run it.
