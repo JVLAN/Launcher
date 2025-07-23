@@ -422,7 +422,7 @@ function createWindow(): void {
     console.log(arg)
 
     const args = [
-      `-lang=${arg.language || 'en'}`,
+      `-lang=${arg.language || 'fr'}`,
       `-username=${arg.authkey ? arg.authkey : arg.username}`,
       `-backend=${arg.server}`
     ]

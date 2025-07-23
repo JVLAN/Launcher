@@ -133,7 +133,7 @@ function SettingsMenu(): JSX.Element {
         <label>Language</label>
         <Select
           variant="outlined"
-          defaultValue={localStorage.getItem('language') || 'en'}
+          defaultValue={localStorage.getItem('language') || 'fr'}
           onChange={(e): void => {
             localStorage.setItem('language', e.target.value)
           }}
