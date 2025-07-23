@@ -263,6 +263,72 @@ function PopUp(): JSX.Element {
           </Box>
         </Backdrop>
       )
+    case 'usernamePrompt':
+      return (
+        <Backdrop open={true} style={{ zIndex: 1000 }}>
+          <Box
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              backgroundColor: '#1a1a1a',
+              width: '600px',
+              height: '250px',
+              borderRadius: '5px',
+              padding: '10px',
+              textAlign: 'center'
+            }}
+          >
+            <Typography
+              variant="h4"
+              style={{
+                color: 'white',
+                textAlign: 'center',
+                marginTop: '20px',
+                fontFamily: 'Brda',
+                fontStyle: 'italic',
+                letterSpacing: '2px'
+              }}
+            >
+              Username
+            </Typography>
+            <p>Entrez s'il vous plaît votre Pseudo de la JVLAN (Pseudo Intranet)</p>
+            <Input
+              id="usernamePromptInput"
+              sx={{ input: { textAlign: 'center' } }}
+              type="text"
+              placeholder="Username"
+              defaultValue={window.getSystemUsername()}
+              style={{ width: '200px', textAlign: 'center', fontSize: '20px' }}
+              onChange={(event): void => {
+                if (event.target.value.length > 16)
+                  event.target.value = event.target.value.slice(0, 16)
+              }}
+            />
+            <Stack direction="row" spacing={2}>
+              <Button
+                variant="contained"
+                className="hoverButton"
+                onClick={(): void => {
+                  const value = (
+                    document.getElementById('usernamePromptInput') as HTMLInputElement
+                  ).value.trim()
+                  if (value) {
+                    setUsername(value)
+                    localStorage.setItem('username', value)
+                    const field = document.getElementById('usernameField') as HTMLInputElement
+                    if (field) field.value = value
+                    setPopUpState(false)
+                  }
+                }}
+                style={{ marginTop: '10px' }}
+              >
+                Save
+              </Button>
+            </Stack>
+          </Box>
+        </Backdrop>
+      )
     case 'confirmLogout':
       return <ConfirmLogout />
     case 'authenticating':
