@@ -4,6 +4,7 @@ declare global {
   interface Window {
     version: string
     isLinux: boolean
+    getSystemUsername: () => string
     electron: typeof electron
     getCurrentWindow: () => Electron.BrowserWindow
     openMenu: (x: number, y: number) => void

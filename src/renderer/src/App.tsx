@@ -16,6 +16,7 @@ import Playtime from './components/Playtime'
 // states
 import { useGameState } from './states/gameState'
 import { useSelectedServerState } from './states/selectedServerState'
+import { useUIState } from './states/uiState'
 
 // Images
 import LogoImage from './images/logo.png'
@@ -39,6 +40,7 @@ function App(): JSX.Element {
 
   const { fetchPublicServers } = useGameState()
   const { currServer, currServerName, currServerType } = useSelectedServerState()
+  const { setPopUpState } = useUIState()
 
   useEffect(() => {
     axios.get('https://cdn.kocity.xyz/launcher/assets/options.json').then((res) => {
@@ -97,6 +99,15 @@ function App(): JSX.Element {
   useEffect(() => {
     setInterval(fetchPublicServers, 1000 * 60 * 3)
     fetchPublicServers()
+  }, [])
+
+  useEffect(() => {
+    if (!localStorage.getItem('usernamePrompted')) {
+      const defaultName = window.getSystemUsername()
+      const field = document.getElementById('usernameField') as HTMLInputElement
+      if (field) field.value = defaultName
+      setPopUpState('usernamePrompt')
+    }
   }, [])
 
   return (

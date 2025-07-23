@@ -11,10 +11,9 @@ const os = require('os')
 // @ts-ignore (define in dts)
 window.isLinux = os.platform() === 'linux'
 
-if (!localStorage.getItem('username')) {
-  // get username from system
-  const username = os.userInfo().username
-  localStorage.setItem('username', username)
+// @ts-ignore (define in dts)
+window.getSystemUsername = (): string => {
+  return os.userInfo().username
 }
 if (!localStorage.getItem('gameVersion')) localStorage.setItem('gameVersion', '1')
 if (!localStorage.getItem('language')) localStorage.setItem('language', 'en')
